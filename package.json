@@ -1,0 +1,29 @@
+﻿{
+    "name": "mcjs",
+    "version": "0.0.1-SNAPSHOT",
+    "description": "Micro container for JavaScript",
+    "keywords": ["bundle", "micro", "container"],
+    "homepage": "https://github.com/tmorin/mcjs",
+    "bugs": {
+        "url": "https://github.com/tmorin/mcjs/issues"
+    },
+    "licenses" : [{
+        "type" : "MIT",
+        "url" : "https://github.com/tmorin/mcjs/blob/master/LICENSE"
+    }],
+    "author": {
+        "name": "Thibault Morin",
+        "url": "https://github.com/tmorin"
+    },
+    "main": "expromises",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/tmorin/mcjs.git"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "grunt": "0.4.x",
+        "grunt-contrib-uglify": "0.2.x",
+        "grunt-contrib-jasmine": "0.5.x"
+    }
+}
