@@ -27,55 +27,18 @@
     var containers = {},
         injector = ioc();
 
-    /* --- Bundle --- */
-
-    function BundleStruct(platform, container) {
-        function start(entry) {}
-        this.start = start;
-
-        function stop(entry) {}
-        this.stop = stop;
-    }
-    Bundle.$inject = ['platform', 'container'];
-
-    /* --- Container --- */
-
-    function ContainerStruct(platform) {
-        function start(container) {}
-        this.start = start;
-
-        function stop(container) {}
-        this.stop = stop;
-    }
-    Container.$inject = ['platform'];
-
-    /* --- Platform --- */
-
-    function PlatformStruct() {
-        function container(platform, containerId, params) {
-            if (!containerId) {
-                throw TypeError('containerId can not be empty');
-            }
-            if (!container[containerId]) {
-                container[containerId] = {
-                    params: params
-                };
-            }
-            return container[containerId];
-        }
-        container.$Struct = ContainerStruct;
-        this.container = container;
-    }
-
     /* --- mcjs --- */
-
+    var platform = {
+        containers: {},
+        entries: {}
+    };
     function mcjs(params) {
-        expromises(PlatformStruct, null, {
+        expromises(PlatformStruct, platform, {
             injector: injector
         });
     }
 
-    mcjs.repository = expromises(Repository, {});
+    mcjs.repository = expromises(Repository, platform.entries);
 
     return mcjs;
 }));
